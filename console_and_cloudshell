@@ -1,0 +1,49 @@
+LAB TITLE : ESSENTIAL GOOGLE CLOUD PLATFORM CONSOLE : FOUNDATION . CONSOLE AND CLOUD SHELL.
+
+OBJECTIVEs :
+1. Get access to Google Cloud.
+
+2. Create a Cloud Storage bucket using the Cloud Console.
+
+3. Create a Cloud Storage bucket using Cloud Shell.
+
+4. Become familiar with Cloud Shell features.
+
+
+Tasks
+1. CREATE A BUCKET
+activate gcloud shell
+gsutil mb gs://<myBucket>
+
+
+2. EXPLORER CLOUD SHELL features
+
+COPY FILE TO BUCKET.
+gsutil cp [all.txt] gs://[myBucket]
+
+3. CREATE A PERSISTENT STATE IN CLOUD SHELL.
+identify available regions
+
+gcloud compute regions list
+
+
+create and verify an environment variable
+INFRACLASS_REGION=[my_REGION]
+echo $INFRACLASS_REGION
+
+append the environment variable to a file.
+mkdir infraclass
+touch infraclass/config
+echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+
+INFRACLASS_PROJECT_ID=[my_PROJECT_ID]
+
+echo INFRACLASS_PROJECT_ID=$INFRACLASS_PROJECT_ID >> ~/infraclass/config
+source infraclass/config
+echo $INFRACLASS_PROJECT_ID
+echo $INFRACLASS_PROJECT_ID
+
+modify the bash profile and create persistence
+nano .profile
+source infraclass/config
+echo $INFRACLASS_PROJECT_ID
