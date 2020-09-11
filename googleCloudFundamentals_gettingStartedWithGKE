@@ -1,0 +1,23 @@
+objectives :
+
+1. provision a kubernetes cluster using Kubernetes Engine
+2. Deploy and manage Docker containers using kubectl.
+
+
+Tasks :
+
+1. sign in to the Google CLoud Platform (GCP) console.
+
+2. confirm that needed APIs are enabled.
+
+gcloud config set project [my project Id]
+gcloud services list --available
+gcloud services enable kubectl
+
+3. start a kubernetes engine cluster
+export MY_ZONE=us-central1-a
+
+gcloud container clusters create webfrontend --zone $MY_ZONE --num-nodes 2
+
+4. RUN AND DEPLOY A container
+kubectl create deploy nginx --image=nginx:1.17.10
